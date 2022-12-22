@@ -1,4 +1,5 @@
 import React from "react";
+import "./NavBar.css";
 import { Button, Stack, Box, ButtonGroup } from "@chakra-ui/react";
 
 export default function NavBar() {
@@ -10,6 +11,7 @@ export default function NavBar() {
       width="100%"
       py={12}
       mb={2}
+      className="navbar-container"
     >
       <ButtonGroup gap="4">
         <Button colorScheme="blackAlpha">Cuenta</Button>
