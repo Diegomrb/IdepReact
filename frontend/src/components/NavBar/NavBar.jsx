@@ -1,0 +1,21 @@
+import React from "react";
+import { Button, Stack, Box, ButtonGroup } from "@chakra-ui/react";
+
+export default function NavBar() {
+  return (
+    <Box
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+      width="100%"
+      py={12}
+      mb={2}
+    >
+      <ButtonGroup gap="4">
+        <Button colorScheme="blackAlpha">Cuenta</Button>
+        <Button colorScheme="blackAlpha">Pasaje</Button>
+        <Button colorScheme="blackAlpha">Home</Button>
+      </ButtonGroup>
+    </Box>
+  );
+}
