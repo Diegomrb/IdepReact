@@ -207,9 +207,10 @@ app.get("/pasajes", (req, res) => {
         }
     })
   })
+
 app.get("/ruta", (req, res) => {
 
-    ruta.find((err, ruta) => {
+    ruta.find(/* aca quiero  hacer el filtraddo */(err, ruta) => {
         if (err) {
             return console.log(err)
         } else {
@@ -258,15 +259,19 @@ app.get("/viajes", (req, res) => {
     ],
   },
 ];
-    viajes.find({ origen: req.query.origen, duracion: { $gte: parseInt(req.query.duracion) } },
+    viajes.find(
       (err, viajes) => {
         if (err) {
 
             console.log(err)
             return res.status(500).send()
         } else {
+          const viajesFiltrados = viajes.filter(viaje => {
+            return viaje.linea.ruta.origen._id.toString() === req.query.origenId && 
+            viaje.linea.ruta.destino._id.toString() === req.query.destinoId;
+          })
             console.log(viajes)
-            res.json(viajes)
+            res.json(viajesFiltrados)
         }
     })
 

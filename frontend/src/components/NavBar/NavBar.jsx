@@ -13,10 +13,10 @@ export default function NavBar() {
       mb={2}
       className="navbar-container"
     >
-      <ButtonGroup gap="4">
-        <Button colorScheme="blackAlpha">Cuenta</Button>
-        <Button colorScheme="blackAlpha">Pasaje</Button>
+      <ButtonGroup gap="8">
         <Button colorScheme="blackAlpha">Home</Button>
+        <Button colorScheme="blackAlpha">Pasaje</Button>
+        <Button colorScheme="blackAlpha">Cuenta</Button>
       </ButtonGroup>
     </Box>
   );
