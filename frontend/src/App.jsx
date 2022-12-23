@@ -4,6 +4,7 @@ import { Home } from "./pages/Home/Home";
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
 import { ViajeProvider } from "./contexts/ViajeContext";
+import { Viajes } from "./components/Viajes/Viajes";
 
 
 export function App() {
@@ -13,6 +14,7 @@ export function App() {
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/viajes" element={<Viajes />} />
           </Routes>
           <NavBar className="NavBar" />
         </Router>

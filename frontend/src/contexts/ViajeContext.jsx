@@ -3,23 +3,13 @@ import React, { useState, createContext } from 'react';
 export const myViajeContext = createContext();
 
 export function ViajeProvider({ children }) {
-    const [origen, setOrigen] = useState("");
-    const [destino, setDestino] = useState("");
-    const [idaVuelta, setIdaVuelta] = useState(true);
+    const [pasaje, setPasaje] = useState({});
 
-
-    function addOrigen(ori) {
-        setOrigen(ori);
-    }
-
-    function addDestino(dest) {
-        setDestino(dest);
-    }
-
-    function isIdaVuelta(bool) { setIdaVuelta(bool); }
+    const addPasaje = (info) => setPasaje(info);
+    const cleanPasaje = () => setPasaje({});
 
     return (
-        <myViajeContext.Provider value={{ addDestino, addOrigen, origen, destino, isIdaVuelta, idaVuelta }}>
+        <myViajeContext.Provider value={{ addPasaje, cleanPasaje, pasaje }}>
             {children}
         </myViajeContext.Provider>
     )

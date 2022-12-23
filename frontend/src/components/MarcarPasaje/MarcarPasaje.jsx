@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Select, Stack, Box, useDisclosure, Heading } from "@chakra-ui/react";
-import { Button } from "@chakra-ui/react";
+import { Button, Input } from "@chakra-ui/react";
 import {
   Alert,
   AlertIcon,
@@ -8,15 +8,20 @@ import {
   AlertDescription,
   CloseButton
 } from '@chakra-ui/react'
+import { myViajeContext } from "../../contexts/ViajeContext";
+import { useNavigate } from "react-router-dom";
 
 const url = "http://localhost:3000";
 
 export function MarcarPasaje() {
-
+  let navigate = useNavigate();
+  const { addPasaje } = useContext(myViajeContext);
   const [localidades, setLocalidades] = useState([]);
   const [origen, setOrigen] = useState("");
   const [destino, setDestino] = useState("");
   const [idaVuelta, setIdaVuelta] = useState(true);
+  const [inicio, setInicio] = useState("");
+  const [fin, setFin] = useState("");
   const [mostrarAlerta, setMostrarAlerta] = useState(false);
 
   useEffect(() => {
@@ -43,6 +48,20 @@ export function MarcarPasaje() {
       .then((respuesta) => respuesta.json())
       .then((datos) => {
         !datos.length ? setMostrarAlerta(true) : setMostrarAlerta(false);
+
+        if (datos.length) {
+
+          addPasaje({
+            localidades,
+            origen,
+            destino,
+            idaVuelta,
+            inicio,
+            fin,
+            viajes: datos
+          }) // Subimos objeto con todo el pasaje y al llenarlo, saltamos al siguiente paso
+          navigate("/viajes")
+        }
       });
   }
 
@@ -76,7 +95,20 @@ export function MarcarPasaje() {
           </option>
         ))}
       </Select>
-
+      <Stack direction={"row"}>
+        <Input
+          placeholder="dd/mm/aaaa"
+          size="md"
+          type="datetime-local"
+          onChange={(e) => setInicio(e.target.value)}
+        />
+        <Input
+          placeholder="dd/mm/aaaa"
+          size="md"
+          type="datetime-local"
+          onChange={(e) => setFin(e.target.value)}
+        />
+      </Stack>
       <Button onClick={irAViajes} colorScheme="blackAlpha">
         Buscar Pasaje
       </Button>
