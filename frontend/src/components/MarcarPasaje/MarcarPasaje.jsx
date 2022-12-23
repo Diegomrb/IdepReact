@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Select, Stack, Box, useDisclosure } from "@chakra-ui/react";
+import { Select, Stack, Box, useDisclosure, Heading } from "@chakra-ui/react";
 import { Button } from "@chakra-ui/react";
 import {
   Alert,
@@ -47,7 +47,10 @@ export function MarcarPasaje() {
   }
 
   return (
-    <Stack direction={["column"]} gap={3}>
+    <Stack margin={3} direction={["column"]} gap={3}>
+      <Heading as='h2' size='xl' noOfLines={1}>
+        ¿A dónde quieres viajar?
+      </Heading>
       <Stack direction='row' spacing={4}>
         <Button colorScheme='teal' onClick={() => setIdaVuelta(false)} variant={!idaVuelta ? 'solid' : 'outline'}>
           Solo ida
