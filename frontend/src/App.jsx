@@ -4,8 +4,15 @@ import { Home } from "./pages/Home/Home";
 import "./App.css";
 import NavBar from "./components/NavBar/NavBar";
 import { ViajeProvider } from "./contexts/ViajeContext";
+import { Viaje } from "./components/Viaje/Viaje";
+
 import { Viajes } from "./components/Viajes/Viajes";
+<<<<<<< Updated upstream
 import Header from "./components/Header/Header";
+=======
+
+// asientos []
+>>>>>>> Stashed changes
 
 export function App() {
   return (
@@ -16,6 +23,7 @@ export function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/viajes" element={<Viajes />} />
+            <Route path="/viaje/:id" element={<Viaje />} />
           </Routes>
           <NavBar className="NavBar" />
         </Router>

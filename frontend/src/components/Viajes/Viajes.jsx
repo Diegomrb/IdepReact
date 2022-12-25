@@ -105,6 +105,7 @@ function PasajesCards({ info }) {
   //Hook de navegacion
   let navigate = useNavigate();
 
+<<<<<<< Updated upstream
   return (
     <Card margin={"8px"} onClick={() => navigate(`/`)}>
       <CardHeader textAlign={"center"}>
@@ -129,3 +130,26 @@ function PasajesCards({ info }) {
     </Card>
   );
 }
+=======
+
+    return (
+        <Card margin={"8px"} onClick={() => navigate(`/viaje/${info._id}`)}>
+            <CardHeader textAlign={"center"}>
+                <Text>
+                    {logo} / {nombreEmp}
+                </Text>
+            </CardHeader>
+            <CardBody>
+                <ul className="timeline">
+                    <li >{info.horaDeSalida}</li>
+                    <li >{`${horasD}h ${minutosD}m`}</li>
+                    <li >{durTotalString}</li>
+                </ul>
+            </CardBody>
+            <CardFooter backgroundColor={"teal.300"} justifyContent="center" color={"white"}>
+                <Text>Precio: $ {info.linea.precio}</Text>
+            </CardFooter>
+        </Card>
+    )
+}
+>>>>>>> Stashed changes
