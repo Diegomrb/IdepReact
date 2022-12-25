@@ -5,7 +5,6 @@ let pasajesSchema = new schema({
     viaje: [{type: schema.Types.ObjectId, ref: 'viaje'}],
     linea: [{type: schema.Types.ObjectId, ref: 'linea'}],
     asientos: [Number],
-    
 })
 let pasajes = mongoose.model("pasajes", pasajesSchema)
 

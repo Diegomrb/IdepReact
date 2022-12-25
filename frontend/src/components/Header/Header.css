@@ -1,6 +1,5 @@
 .navbar-container {
   position: fixed;
-  bottom: 0;
+  /* top: 0; */
   background-color: #eaeaea;
-  z-index: 100;
 }

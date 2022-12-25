@@ -7,7 +7,7 @@ let compraTrayectoSchema = new schema({
     numeroTicket: String, 
     pasajeIda: String, 
     pasajeVuelta: String, 
-    usuarioId: [{type: schema.Types.ObjectId, ref: 'usuarios'}], 
+    usuarioId: [{type: schema.Types.ObjectId, ref: 'usuarios'}],
 })
 let compraTrayecto = mongoose.model("compraTrayecto", compraTrayectoSchema)
 

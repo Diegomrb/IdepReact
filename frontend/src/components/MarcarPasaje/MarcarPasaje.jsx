@@ -6,8 +6,8 @@ import {
   AlertIcon,
   AlertTitle,
   AlertDescription,
-  CloseButton
-} from '@chakra-ui/react'
+  CloseButton,
+} from "@chakra-ui/react";
 import { myViajeContext } from "../../contexts/ViajeContext";
 import { useNavigate } from "react-router-dom";
 
@@ -50,7 +50,6 @@ export function MarcarPasaje() {
         !datos.length ? setMostrarAlerta(true) : setMostrarAlerta(false);
 
         if (datos.length) {
-
           addPasaje({
             localidades,
             origen,
@@ -58,23 +57,31 @@ export function MarcarPasaje() {
             idaVuelta,
             inicio,
             fin,
-            viajes: datos
-          }) // Subimos objeto con todo el pasaje y al llenarlo, saltamos al siguiente paso
-          navigate("/viajes")
+            viajes: datos,
+          }); // Subimos objeto con todo el pasaje y al llenarlo, saltamos al siguiente paso
+          navigate("/viajes");
         }
       });
   }
 
   return (
     <Stack margin={3} direction={["column"]} gap={3}>
-      <Heading as='h2' size='xl' noOfLines={1}>
+      <Heading as="h2" size="xl" noOfLines={1}>
         ¿A dónde quieres viajar?
       </Heading>
-      <Stack direction='row' spacing={4}>
-        <Button colorScheme='teal' onClick={() => setIdaVuelta(false)} variant={!idaVuelta ? 'solid' : 'outline'}>
+      <Stack direction="row" spacing={4}>
+        <Button
+          colorScheme="linkedin"
+          onClick={() => setIdaVuelta(false)}
+          variant={!idaVuelta ? "solid" : "outline"}
+        >
           Solo ida
         </Button>
-        <Button colorScheme='teal' onClick={() => setIdaVuelta(true)} variant={idaVuelta ? 'solid' : 'outline'}>
+        <Button
+          colorScheme="linkedin"
+          onClick={() => setIdaVuelta(true)}
+          variant={idaVuelta ? "solid" : "outline"}
+        >
           Ida y vuelta
         </Button>
       </Stack>
@@ -109,38 +116,33 @@ export function MarcarPasaje() {
           onChange={(e) => setFin(e.target.value)}
         />
       </Stack>
-      <Button onClick={irAViajes} colorScheme="blackAlpha">
+      <Button onClick={irAViajes} colorScheme="linkedin">
         Buscar Pasaje
       </Button>
 
-      {mostrarAlerta &&
-        <Alerta mostrar={setMostrarAlerta} />
-      }
+      {mostrarAlerta && <Alerta mostrar={setMostrarAlerta} />}
     </Stack>
   );
 }
 
-
 function Alerta({ mostrar }) {
-
-
-
   return (
-    <Alert status='info'>
+    <Alert status="info">
       <AlertIcon />
       <Box>
         <AlertTitle>Ups!</AlertTitle>
         <AlertDescription>
-          Parece que no tenemos pasajes disponibles para este origen y destino...
+          Parece que no tenemos pasajes disponibles para este origen y
+          destino...
         </AlertDescription>
       </Box>
       <CloseButton
-        alignSelf='flex-start'
-        position='relative'
+        alignSelf="flex-start"
+        position="relative"
         right={-1}
         top={-1}
         onClick={() => mostrar(false)}
       />
     </Alert>
-  )
+  );
 }
