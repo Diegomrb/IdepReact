@@ -8,8 +8,8 @@ let usuariosSchema = new schema({
     correoElectronico: String,
     foto: String,
     contraseña: String,
-    fechaCreacion: {type: Date, default: Date.now },
-    
+    fechaCreacion: { type: Date, default: Date.now },
+
 })
 let usuarios = mongoose.model("usuarios", usuariosSchema)
 
