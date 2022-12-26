@@ -106,6 +106,8 @@ function PasajesCards({ info }) {
   //variables para facilitar el manejo de las mismas
   let logo = info.linea.empresa.logo;
   let nombreEmp = info.linea.empresa.nombre;
+  let nombreOrigen = info.linea.ruta.origen.nombre;
+  let nombreDestino = info.linea.ruta.destino.nombre;
 
   //Hook de navegacion
   let navigate = useNavigate();
@@ -123,6 +125,8 @@ function PasajesCards({ info }) {
           <li>{info.horaDeSalida}</li>
           <li>{`${horasD}h ${minutosD}m`}</li>
           <li>{durTotalString.split(".")[0]}</li>
+          <li>{nombreOrigen}</li>
+          <li>{nombreDestino}</li>
         </ul>
       </CardBody>
       <CardFooter
