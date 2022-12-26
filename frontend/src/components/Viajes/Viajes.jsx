@@ -11,19 +11,25 @@ import {
     Text,
 } from "@chakra-ui/react";
 import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { myViajeContext } from "../../contexts/ViajeContext";
 import moment from "moment";
 import "./Viajes.css";
 
 export const Viajes = () => {
     const { pasaje } = useContext(myViajeContext);
+    const { tipoViaje } = useParams();
+    console.log("este es mi tipo de viaje: " + tipoViaje)
+
+
     let origen = pasaje.localidades.filter(
         (item) => item["_id"] == pasaje.origen
     )[0];
     let destino = pasaje.localidades.filter(
         (item) => item["_id"] == pasaje.destino
     )[0];
+
+
     return (
         <div>
             <Stack /* backgroundColor={} */ margin={"8px"} direction={["column"]}>
@@ -84,6 +90,7 @@ export const Viajes = () => {
 };
 
 function PasajesCards({ info }) {
+    const { tipoViaje } = useParams();
     // tiempo duracion calculado para que salga con formato HH:MM
     let durTotalHoras = moment
         .duration(info.horaDeSalida)
@@ -106,7 +113,7 @@ function PasajesCards({ info }) {
     let navigate = useNavigate();
 
     return (
-        <Card margin={"8px"} onClick={() => navigate(`/`)}>
+        <Card margin={"8px"} onClick={() => navigate(`/viaje/${info._id}/${tipoViaje}`)}>
             <CardHeader textAlign={"center"}>
                 <Text>
                     {logo} / {nombreEmp}
@@ -116,7 +123,7 @@ function PasajesCards({ info }) {
                 <ul className="timeline">
                     <li>{info.horaDeSalida}</li>
                     <li>{`${horasD}h ${minutosD}m`}</li>
-                    <li>{durTotalString}</li>
+                    <li>{durTotalString.split(".")[0]}</li>
                 </ul>
             </CardBody>
             <CardFooter

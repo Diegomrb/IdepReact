@@ -1,0 +1,28 @@
+.asiento {
+    border-radius: 30% 30% 10% 10%;
+    width: 20px;
+    height: 20px;
+}
+
+.asiento_disponible {
+    border: 1px solid #189FF5;
+}
+
+.asiento_elegido {
+    background: #F4CB29;
+}
+
+.asiento_ocupado {
+    background: #EDEDF1;
+}
+
+.asiento-referencias {
+    width: 200px;
+    height: 200px;
+    border-radius: 20%;
+    box-shadow: inset;
+    gap: 10px;
+    opacity: 0.6;
+    display: flex;
+    flex-direction: row;
+}

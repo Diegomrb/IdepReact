@@ -59,7 +59,7 @@ export function MarcarPasaje() {
             fin,
             viajes: datos,
           }); // Subimos objeto con todo el pasaje y al llenarlo, saltamos al siguiente paso
-          navigate("/viajes");
+          navigate("/viajes/ida");
         }
       });
   }
