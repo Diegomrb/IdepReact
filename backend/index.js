@@ -266,7 +266,6 @@ app.post("/ruta", (req, res) => {
           console.log(err)
           return res.status(500).send()
         } else {
-          console.log(viajes)
           const viajesFiltrados = viajes.filter(viaje => {
             return viaje.linea.ruta.origen._id.toString() === req.query.origenId && viaje.linea.ruta.destino._id.toString() === req.query.destinoId;
           })

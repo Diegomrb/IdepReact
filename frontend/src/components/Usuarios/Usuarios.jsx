@@ -5,7 +5,7 @@ import { FaHome } from "react-icons/fa";
 import { FaTicketAlt } from "react-icons/fa";
 import { FaUserAlt } from "react-icons/fa";
 
-export default function Usuarios() {
+export function Usuarios() {
   return (
     <Box
       display="flex"
