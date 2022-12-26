@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 import Logo from "../../img/logoIdep.png";
 
-export default function Header() {
+export function Header() {
   let navigate = useNavigate();
   return (
     <Box

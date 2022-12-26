@@ -10,13 +10,3 @@ let rutaSchema = new schema({
 let ruta = mongoose.model("ruta", rutaSchema)
 
 module.exports = ruta;
-
-/* const personSchema = Schema({
-  _id: Schema.Types.ObjectId,
-  name: String,
-  age: Number,
-  stories: [{ type: Schema.Types.ObjectId, ref: 'Story' }]
-}); */
-
-/* const story = await Story.findOne({ title: 'Casino Royale' }).populate('authors');
- */

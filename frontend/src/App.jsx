@@ -20,8 +20,8 @@ export function App() {
           <Header className="Header" />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/viajes" element={<Viajes />} />
-            <Route path="/viaje/:id" element={<Viaje />} />
+            <Route path="/viajes/:tipoViaje" element={<Viajes />} />
+            <Route path="/viaje/:id/:tipoViaje" element={<Viaje />} />
             <Route path="/pasajes" element={<Pasajes />} />
             <Route path="/usuarios" element={<Usuarios />} />
           </Routes>
