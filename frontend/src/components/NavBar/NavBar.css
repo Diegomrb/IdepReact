@@ -3,4 +3,5 @@
   bottom: 0;
   background-color: #eaeaea;
   z-index: 100;
+  max-width: 100vw;
 }
