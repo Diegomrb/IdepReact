@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 import Logo from "../../img/logoIdep.png";
 import { FaArrowLeft } from "react-icons/fa";
+import { Avatar, Wrap, WrapItem } from "@chakra-ui/react";
 
 export function Header() {
   let navigate = useNavigate();
@@ -20,22 +21,20 @@ export function Header() {
     >
       <ButtonGroup gap="14">
         <Button onClick={() => navigate(`/`)} colorScheme="transparent">
-          <Icon
-            as={FaArrowLeft}
-            boxSize={"1.5em"}
-            position={"relative"}
-            left={"-45px"}
-            color={"black"}
-          />
+          <Icon as={FaArrowLeft} boxSize={"1.5em"} color={"black"} />
         </Button>
-        <Button
-          position={"relative"}
-          left={"-55px"}
-          onClick={() => navigate(`/`)}
-          colorScheme="transparent"
-        >
+        <Button onClick={() => navigate(`/`)} colorScheme="transparent">
           <img src={Logo} alt="logo" />
         </Button>
+        <Wrap>
+          <WrapItem>
+            <Avatar
+              size={"sm"}
+              name="Dan Abrahmov"
+              src="https://bit.ly/dan-abramov"
+            />
+          </WrapItem>
+        </Wrap>
       </ButtonGroup>
     </Box>
   );
