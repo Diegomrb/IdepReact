@@ -1,32 +1,30 @@
 import React from "react";
 import "./Pasajes.css";
-import { Button, Box, ButtonGroup, Icon } from "@chakra-ui/react";
-import { FaHome } from "react-icons/fa";
-import { FaTicketAlt } from "react-icons/fa";
-import { FaUserAlt } from "react-icons/fa";
+import {
+  Button,
+  Box,
+  ButtonGroup,
+  Icon,
+  Card,
+  CardBody,
+  CardHeader,
+  Stack,
+} from "@chakra-ui/react";
 
-export function Pasajes() {
+export function Pasajes(info) {
+  /* let logo = info.linea.empresa.logo; */
   return (
-    <Box
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-      width="100%"
-      py={5}
-      /* mb={-5} */
-      className="navbar-container"
-    >
-      <ButtonGroup gap="14">
-        <Button colorScheme="transparent">
-          <Icon as={FaHome} boxSize={"1.5em"} color={"#F4CB29"} />
-        </Button>
-        <Button colorScheme="transparent">
-          <Icon as={FaTicketAlt} boxSize={"1.5em"} color={"#F4CB29"} />
-        </Button>
-        <Button colorScheme="transparent">
-          <Icon as={FaUserAlt} boxSize={"1.5em"} color={"#F4CB29"} />
-        </Button>
-      </ButtonGroup>
-    </Box>
+    <Stack style={{ height: "100vh" }}>
+      <Card
+        border={"2px solid skyblue"}
+        margin={"8px"}
+        /* onClick={() => navigate(`/viaje/${info._id}/${tipoViaje}`)} */
+      >
+        <CardHeader textAlign={"center"}>
+          {/* {<img style={{ width: "50%" }} src={logo} alt={nombreEmp} />} */}
+        </CardHeader>
+        <CardBody className="card-body-container"></CardBody>
+      </Card>
+    </Stack>
   );
 }
