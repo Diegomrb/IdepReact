@@ -48,6 +48,17 @@ app.get("/", (req, res) => {
 
 })
 
+app.get("/usuario", (req, res) => {
+  usuarios.find({ "correoElectronico": req.query.email, "contraseña": req.query.pass }, (err, usuario) => {
+    if (err) {
+      return console.log(err)
+    } else {
+      console.log(usuario)
+      res.json(usuario)
+    }
+  })
+});
+
 app.post("/usuarios", (req, res) => {
   const article = new usuarios({
     celular: req.body.celular,
