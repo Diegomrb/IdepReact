@@ -19,7 +19,6 @@ import "./Viajes.css";
 export const Viajes = () => {
     const { pasaje } = useContext(myViajeContext);
     const { tipoViaje } = useParams();
-    console.log("este es mi tipo de viaje: " + tipoViaje);
 
     let origen = pasaje.localidades.filter(
         (item) => item["_id"] == pasaje.origen
@@ -32,7 +31,7 @@ export const Viajes = () => {
         <div>
             <Stack margin={"8px"} direction={["column"]}>
                 <Heading as="h2" size="xl" noOfLines={1}>
-                    Elije tu viaje de ida
+                    Elije tu viaje de {tipoViaje}
                 </Heading>
                 <Stack direction={"row"}>
                     <FormControl>
