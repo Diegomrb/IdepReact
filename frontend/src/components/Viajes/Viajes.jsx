@@ -124,7 +124,7 @@ function PasajesCards({ info }) {
                 <img style={{ width: "50%" }} src={logo} alt={nombreEmp} />
             </CardHeader>
             <CardBody className="card-body-container">
-                <ul class="timeline">
+                <ul className="timeline">
                     <li>
                         <span>{nombreOrigen}</span>
                         <span>{info.horaDeSalida}</span>
@@ -139,8 +139,6 @@ function PasajesCards({ info }) {
                 </ul>
             </CardBody>
             <CardFooter
-                /*  border-bottom-left-radius={"20px"}
-                border-bottom-right-radius={"20px"} */
                 backgroundColor={"#00ADBF"}
                 justifyContent="center"
                 color={"white"}
