@@ -1,4 +1,4 @@
-import { Stack } from '@chakra-ui/react';
+import { Grid, GridItem, Stack } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import "./Viaje.css";
@@ -21,7 +21,7 @@ export const Viaje = () => {
             .then((datos) => {
                 setViaje(datos);
                 let arrAsientos = [];
-                for (let i = 1; i <= 30; i++) {
+                for (let i = 1; i <= datos.lugares; i++) {
                     arrAsientos.push(i);
                 }
                 setAsientos(arrAsientos);
@@ -45,21 +45,23 @@ export const Viaje = () => {
 
     }
     return (
-        <div>
+        <Stack display={"flex"} alignItems={"center"} style={{ padding: "10px" }}>
             <div className='asiento-referencias'>
                 <div><div className='asiento asiento_ocupado'></div> <span>Ocupado</span></div>
                 <div><div className="asiento asiento_disponible"></div><span>Disponible</span></div>
                 <div><div className="asiento asiento_elegido"></div><span>Elegido</span></div>
             </div>
-            <Stack direction="row" style={{ display: "flex", flexWrap: "nowrap", maxWidth: "300px" }}>
+            <Grid templateColumns='repeat(4, 1fr)' w="20px" gap={2} style={{ "maxWidth": "100%", "maxHeight": "100vh" }}>
                 {asientos.map((asiento, indx) => {
                     let estado = "asiento_disponible";
                     if (viaje.asientos.includes(asiento)) estado = "asiento_ocupado";
                     if (asientosSel.includes(asiento)) estado = "asiento_elegido";
-                    return (<div className={`asiento ${estado}`} onClick={(e) => elegirAsiento(asiento)}></div>);
+                    return (<GridItem w="25px" key={asiento} >
+                        <div className={`asiento ${estado}`} onClick={(e) => elegirAsiento(asiento)} >{asiento}</div>
+                    </GridItem>);
                 })}
-            </Stack>
+            </Grid>
 
-        </div>
+        </Stack >
     );
 }
