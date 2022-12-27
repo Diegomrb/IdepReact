@@ -4,8 +4,10 @@ import { Button, Box, ButtonGroup, Icon } from "@chakra-ui/react";
 import { FaHome } from "react-icons/fa";
 import { FaTicketAlt } from "react-icons/fa";
 import { FaUserAlt } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 export default function NavBar() {
+  let navigate = useNavigate();
   return (
     <Box
       display="flex"
@@ -17,13 +19,13 @@ export default function NavBar() {
       className="navbar-container"
     >
       <ButtonGroup gap="14">
-        <Button colorScheme="transparent">
+        <Button onClick={() => navigate(`/`)} colorScheme="transparent">
           <Icon as={FaHome} boxSize={"1.5em"} color={"#F4CB29"} />
         </Button>
-        <Button colorScheme="transparent">
+        <Button onClick={() => navigate(`/pasajes`)} colorScheme="transparent">
           <Icon as={FaTicketAlt} boxSize={"1.5em"} color={"#F4CB29"} />
         </Button>
-        <Button colorScheme="transparent">
+        <Button onClick={() => navigate(`/usuarios`)} colorScheme="transparent">
           <Icon as={FaUserAlt} boxSize={"1.5em"} color={"#F4CB29"} />
         </Button>
       </ButtonGroup>
