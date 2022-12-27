@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./Login.css";
 import {
   Button,
@@ -11,9 +11,25 @@ import {
   Heading,
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import { myUsuarioContext } from "../../contexts/UsuarioContext";
 
 export function Login() {
+  const [email, setEmail] = useState("");
+  const [contrasena, setContrasena] = useState("");
+  const { loguearUsuario, usuario } = useContext(myUsuarioContext);
+
   let navigate = useNavigate();
+
+  function loginUsuario() {
+    loguearUsuario(email, contrasena);
+    console.log(usuario)
+    if (usuario) {
+      navigate("/home");
+    } else {
+      // arrojar un error o notificacion;
+      return null
+    }
+  }
   return (
     <Stack margin={3} gap={3} style={{ height: "100vh" }}>
       <Heading as="h2" size="xl" noOfLines={1}>
@@ -22,15 +38,15 @@ export function Login() {
       <Box>
         <FormControl>
           <FormLabel>Email</FormLabel>
-          <Input type="email" />
+          <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
         </FormControl>
 
         <FormControl margin-top={"2em"}>
           <FormLabel>Contraseña</FormLabel>
-          <Input type="password" />
+          <Input type="password" value={contrasena} onChange={(e) => setContrasena(e.target.value)} />
         </FormControl>
       </Box>
-      <Button onClick={() => navigate(`/`)} colorScheme="linkedin">
+      <Button onClick={loginUsuario} colorScheme="linkedin">
         Ingresar
       </Button>
       <Button

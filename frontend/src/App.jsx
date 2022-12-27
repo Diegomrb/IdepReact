@@ -26,13 +26,13 @@ export function App() {
           <Router>
             <Header className="Header" />
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/home" element={<Home />} />
               <Route path="/viajes/:tipoViaje" element={<Viajes />} />
               <Route path="/viaje/:id/:tipoViaje" element={<Viaje />} />
               <Route path="/checkout" element={<Checkout />} />
               <Route path="/pasajes" element={<Pasajes />} />
               <Route path="/usuarios" element={<Usuarios />} />
-              <Route path="/splash" element={<Splash />} />
+              <Route path="/" element={<Splash />} />
               <Route path="/login" element={<Login />} />
               <Route path="/preregistro" element={<PreRegistro />} />
               <Route path="/registro" element={<Registro />} />

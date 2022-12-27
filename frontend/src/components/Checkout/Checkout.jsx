@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import { Stack } from '@chakra-ui/react';
 
 export function Checkout() {
+    const { usuario } = useContext(myUsuarioContext);
+
     return (
         <Stack flexDirection={"column"} gap={3} height={"100vh"} maxHeight={"100%"}>
 

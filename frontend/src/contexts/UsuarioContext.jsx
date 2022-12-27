@@ -30,13 +30,12 @@ export function UsuarioProvider({ children }) {
 
     }
 
-    function loguearUsuario(email, pass) {
+    async function loguearUsuario(email, pass) {
         //realizar funcion fetch para buscar por correo y contrase;a
         fetch(`http://localhost:3000/usuario?email=${email}&pass=${pass}`)
             .then((data) => data.text())
             .then((data) => {
                 if (data) {
-                    console.log(data)
                     setUsuario(data);
                 }
             })
