@@ -65,7 +65,7 @@ export function MarcarPasaje() {
   }
 
   return (
-    <Stack margin={3} direction={["column"]} gap={3}>
+    <Stack margin={3} direction={["column"]} gap={3} style={{ height: "100vh" }}>
       <Heading as="h2" size="xl" noOfLines={1}>
         ¿A dónde quieres viajar?
       </Heading>

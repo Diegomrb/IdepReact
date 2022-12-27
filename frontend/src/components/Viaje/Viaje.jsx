@@ -1,4 +1,4 @@
-import { Grid, GridItem, Stack } from '@chakra-ui/react';
+import { Grid, GridItem, Stack, FormControl, FormLabel, Input, Button } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import "./Viaje.css";
@@ -45,23 +45,42 @@ export const Viaje = () => {
 
     }
     return (
-        <Stack display={"flex"} alignItems={"center"} style={{ padding: "10px" }}>
+        <Stack display={"flex"} alignItems={"center"} justifyContent="center" style={{ padding: "10px" }}>
             <div className='asiento-referencias'>
                 <div><div className='asiento asiento_ocupado'></div> <span>Ocupado</span></div>
                 <div><div className="asiento asiento_disponible"></div><span>Disponible</span></div>
                 <div><div className="asiento asiento_elegido"></div><span>Elegido</span></div>
             </div>
-            <Grid templateColumns='repeat(4, 1fr)' w="20px" gap={2} style={{ "maxWidth": "100%", "maxHeight": "100vh" }}>
-                {asientos.map((asiento, indx) => {
-                    let estado = "asiento_disponible";
-                    if (viaje.asientos.includes(asiento)) estado = "asiento_ocupado";
-                    if (asientosSel.includes(asiento)) estado = "asiento_elegido";
-                    return (<GridItem w="25px" key={asiento} >
-                        <div className={`asiento ${estado}`} onClick={(e) => elegirAsiento(asiento)} >{asiento}</div>
-                    </GridItem>);
-                })}
+            <Grid templateColumns='repeat(2, 1fr)' w="300px" gap={2} style={{ "maxWidth": "100%", "maxHeight": "100vh" }}>
+                {Object.keys(viaje).length && <Grid style={{ display: "flex", flexDirection: "column", gap: "30px" }}>
+                    <div className='pasaje-precio'>
+                        <span>Precio por pasaje</span>
+                        <span>${viaje.linea.precio}</span>
+                    </div>
+                    <FormControl>
+                        <FormLabel>Precio total</FormLabel>
+                        <Input
+                            variant="outline"
+                            placeholder="Origen"
+                            value={`$${asientosSel.reduce((pv) => pv + viaje.linea.precio, 0)}`}
+                            disabled
+                        />
+                    </FormControl>
+                </Grid>}
+                <Grid templateColumns='repeat(4, 1fr)' w="20px" gap={2} >
+                    {asientos.map((asiento, indx) => {
+                        let estado = "asiento_disponible";
+                        if (viaje.asientos.includes(asiento)) estado = "asiento_ocupado";
+                        if (asientosSel.includes(asiento)) estado = "asiento_elegido";
+                        return (<GridItem w="25px" key={asiento} >
+                            <div className={`asiento ${estado}`} onClick={(e) => elegirAsiento(asiento)} >{asiento}</div>
+                        </GridItem>);
+                    })}
+                </Grid>
             </Grid>
-
+            <Button style={{ "marginTop": "10px", width: "80%", "backgroundColor": "#00ADBF", "color": "white" }}>
+                { }
+            </Button>
         </Stack >
     );
 }

@@ -8,15 +8,14 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  max-width: 500px;
-  margin: 100px auto;
-  counter-reset: step;
+  /* max-width: 500px; */
+  /* margin: 100px auto; */
 }
 
 .timeline li {
   float: left;
   text-align: center;
-  width: 150px;
+  width: 95px;
   position: relative;
 }
 
@@ -58,4 +57,9 @@
 [data-duracion]:before {
   content: "" !important;
   display: none !important;
+}
+
+.card-body-container {
+  display: flex;
+  justify-content: center;
 }

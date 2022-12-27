@@ -180,6 +180,19 @@ app.post("/linea", (req, res) => {
     })
   })
 
+app.post("/pasajes", (req, res) => {
+  const pasaje = new pasajes({
+    viaje: req.body.viaje,
+    linea: req.body.linea,
+    asientos: req.body.asientos
+  });
+
+  pasaje.save().then((pas) => {
+    res.json({ pas });
+  });
+
+})
+
 app.post("/localidades", (req, res) => {
   const localidad = new localidades({
     nombre: req.body.nombre,
