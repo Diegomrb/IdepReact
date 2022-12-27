@@ -341,29 +341,6 @@ app.post("/viajes", (req, res) => {
   console.log(req.body.numeroDeCoche)
 });
 
-/* 
-buscar en el link que el profe paso
-const userSchema = new Schema({ name: String }, {
-  timestamps: {
-    createdAt: 'created_at', // Use `created_at` to store the created date
-    updatedAt: 'updated_at' // and `updated_at` to store the last updated date
-  }
-});
- */
-
-/* const testSchema = new mongoose.Schema({
-  status: {
-    type: String,
-    enum: ['valid', 'invalid']
-  }
-})
-
-const Test = mongoose.model('Test', testSchema);
-
-await Test.create({ name: 'not a status' }); // throws validation error
-await Test.create({ name: 'valid' }); // works
- */
-
 app.listen(port, () => {
   console.log(`Ejemplo de app en http:localhost:${port}`);
   console.log("hola")
