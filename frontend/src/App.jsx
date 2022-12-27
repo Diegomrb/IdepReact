@@ -12,6 +12,7 @@ import { Usuarios } from "./components/Usuarios/Usuarios";
 import { Splash } from "./components/Splash/Splash";
 import { Login } from "./components/Login/Login";
 import { PreRegistro } from "./components/PreRegistro/PreRegistro";
+import { Registro } from "./components/Registro/Registro";
 import { UsuarioProvider } from "./contexts/UsuarioContext";
 import { Checkout } from "./components/Checkout/Checkout";
 
