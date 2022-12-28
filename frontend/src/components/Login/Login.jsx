@@ -20,10 +20,10 @@ export function Login() {
 
   let navigate = useNavigate();
 
-  function loginUsuario() {
-    loguearUsuario(email, contrasena);
-    console.log(usuario)
-    if (usuario) {
+  async function loginUsuario() {
+    let loginResp = await loguearUsuario(email, contrasena);
+    console.log(loginResp)
+    if (loginResp) {
       navigate("/home");
     } else {
       // arrojar un error o notificacion;

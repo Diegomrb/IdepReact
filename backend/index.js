@@ -118,6 +118,24 @@ app.get("/compraTrayecto", (req, res) => {
   })
 })
 
+app.post("/compraTrayecto", (req, res) => {
+
+  const compraTrayectoU = new compraTrayecto({
+    pago: "true",
+    fechaVencimiento: "",
+    numeroTicket: "",
+    pasajeIda: req.body.pasajeIda,
+    pasajeVuelta: req.body.pasajeVuelta,
+    usuarioId: req.body.usuarioId,
+
+  });
+
+  compraTrayectoU.save().then(compra => {
+    res.json({ compra })
+  });
+
+})
+
 app.get("/empresa", (req, res) => {
 
   empresa.find((err, empresa) => {

@@ -6,7 +6,7 @@ export function UsuarioProvider({ children }) {
 
     const [usuario, setUsuario] = useState();
 
-    function registrarUsuario(payload = {}) {
+    async function registrarUsuario(payload = {}) {
         //funcion para registrar al usuario y loguearnos con el mismo...
         // console.log(payload);
         // celular: req.body.celular,
@@ -17,28 +17,24 @@ export function UsuarioProvider({ children }) {
         // contraseña: req.body.contraseña,
 
 
-        fetch("http://localhost:3000/usuarios", {
+        let res = await fetch("http://localhost:3000/usuarios", {
             method: "POST",
             body: payload,
             headers: { "Content-type": "application/json" }
-        }).then((data) => data.text())
-            .then((data) => {
-                if (data) {
-                    setUsuario(data);
-                }
-            });
-
+        })
+        let datos = await res.text();
+        setUsuario(datos);
+        return datos;
     }
 
     async function loguearUsuario(email, pass) {
         //realizar funcion fetch para buscar por correo y contrase;a
-        fetch(`http://localhost:3000/usuario?email=${email}&pass=${pass}`)
-            .then((data) => data.text())
-            .then((data) => {
-                if (data) {
-                    setUsuario(data);
-                }
-            })
+        let respuesta = await fetch(`http://localhost:3000/usuario?email=${email}&pass=${pass}`)
+
+        respuesta = await respuesta.text();
+        console.log(respuesta)
+        setUsuario(JSON.parse(respuesta)[0])
+        return respuesta;
     }
 
     function desloguearUsuario() {

@@ -47,6 +47,7 @@ export function MarcarPasaje() {
     })
       .then((respuesta) => respuesta.json())
       .then((datos) => {
+        console.log(datos);
         !datos.length ? setMostrarAlerta(true) : setMostrarAlerta(false);
 
         if (datos.length) {
@@ -54,6 +55,8 @@ export function MarcarPasaje() {
             localidades,
             origen,
             destino,
+            nombreOrigen: datos[0].linea.ruta.origen.nombre,
+            nombreDestino: datos[0].linea.ruta.destino.nombre,
             idaVuelta,
             inicio,
             fin,

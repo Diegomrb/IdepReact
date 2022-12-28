@@ -63,13 +63,13 @@ export const Viaje = () => {
 
     }
 
-    function agregarPasaje() {
+    async function agregarPasaje() {
         let payload = {
             "linea": viaje.linea._id,
             "viaje": viaje._id,
             "asientos": asientosSel
         }
-        addPasajeIdaVuelta(JSON.stringify(payload), tipoViaje);
+        await addPasajeIdaVuelta(JSON.stringify(payload), tipoViaje);
         navigate(rutaBoton);
     }
 
