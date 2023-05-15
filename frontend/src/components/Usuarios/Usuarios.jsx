@@ -1,32 +1,56 @@
 import React from "react";
 import "./Usuarios.css";
-import { Button, Box, ButtonGroup, Icon } from "@chakra-ui/react";
-import { FaHome } from "react-icons/fa";
-import { FaTicketAlt } from "react-icons/fa";
-import { FaUserAlt } from "react-icons/fa";
+import { Button, Icon, Stack, Heading } from "@chakra-ui/react";
+
+import { AiOutlineLogout } from "react-icons/ai";
+import { MdOutlinePayment } from "react-icons/md";
+import { MdOutlineNotificationsNone } from "react-icons/md";
+import { MdOutlineSecurity } from "react-icons/md";
 
 export function Usuarios() {
   return (
-    <Box
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-      width="100%"
-      py={5}
-      /* mb={-5} */
-      className="navbar-container"
-    >
-      <ButtonGroup gap="14">
-        <Button colorScheme="transparent">
-          <Icon as={FaHome} boxSize={"1.5em"} color={"#F4CB29"} />
+    <Stack margin={3} gap={3} style={{ height: "100vh" }}>
+      <Heading as="h2" size="xl" noOfLines={1}>
+        Usuario
+      </Heading>
+      <Stack>
+        <Button colorScheme="linkedin">
+          <Icon
+            as={MdOutlineNotificationsNone}
+            boxSize={"1.5em"}
+            variant="outline"
+            color={"#F4CB29"}
+          />
+          Notificaciones
         </Button>
-        <Button colorScheme="transparent">
-          <Icon as={FaTicketAlt} boxSize={"1.5em"} color={"#F4CB29"} />
+        <Button colorScheme="linkedin">
+          <Icon
+            as={MdOutlinePayment}
+            boxSize={"1.5em"}
+            variant="outline"
+            color={"#F4CB29"}
+          />
+          Métodos de pago
         </Button>
-        <Button colorScheme="transparent">
-          <Icon as={FaUserAlt} boxSize={"1.5em"} color={"#F4CB29"} />
+        <Button colorScheme="linkedin">
+          <Icon
+            as={MdOutlineSecurity}
+            boxSize={"1.5em"}
+            variant="outline"
+            color={"#F4CB29"}
+          />
+          Seguridad
         </Button>
-      </ButtonGroup>
-    </Box>
+        <Button colorScheme="linkedin">
+          <Icon
+            as={AiOutlineLogout}
+            boxSize={"1.5em"}
+            variant="outline"
+            color={"#F4CB29"}
+          />
+          Cerrar sesión
+        </Button>
+      </Stack>
+    </Stack>
   );
 }

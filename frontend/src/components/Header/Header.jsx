@@ -29,6 +29,7 @@ export function Header() {
         <Wrap>
           <WrapItem>
             <Avatar
+              onClick={() => navigate(`/usuarios`)}
               size={"sm"}
               name="Dan Abrahmov"
               src="https://bit.ly/dan-abramov"

@@ -1,22 +1,22 @@
 import React from "react";
 import "./Pasajes.css";
 import {
-  Button,
-  Box,
-  ButtonGroup,
-  Icon,
   Card,
   CardBody,
   CardHeader,
   Stack,
   Text,
   SimpleGrid,
+  Heading,
 } from "@chakra-ui/react";
 
 export function Pasajes(info) {
   /* let logo = info.linea.empresa.logo; */
   return (
     <Stack style={{ height: "100vh" }}>
+      <Heading as="h2" size="xl" noOfLines={1}>
+        Pasajes
+      </Heading>
       <Card
         border={"2px solid skyblue"}
         margin={"8px"}
